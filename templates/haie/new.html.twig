@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Haie{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <h1>Create new Haie</h1>
+
+    {{ include('haie/_form.html.twig') }}
+    <br/>
+    <button class="btn btn-primary" onclick="location.href ={{ path('haie_index') }}">{{ button_label|default('Back to list') }}</button>
+</div>
+{% endblock %}

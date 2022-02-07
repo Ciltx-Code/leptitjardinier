@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <form action="{{ path('devis') }}" method="post">
+
+        <select name="type" id="type" required>
+            <option value="">--Choisir une option--</option>
+            {% for item in haies %}
+                <option value="{{ item.getNom() }}">{{ item.getNom() }}</option>
+            {% endfor %}
+        </select>
+        <br/>
+        <br/>
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Longeur</span>
+            <input type="text" class="form-control" name="Longeur" placeholder="Entrez la longeur en mètre">
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Hauteur</span>
+            <input type="text" class="form-control" name="Hauteur" placeholder="Entrez la hauteur en mètre">
+
+        </div>
+
+        <input type="submit" value="Suite"class="btn btn-primary">
+
+    </form>
+</div>
+{% endblock %}
