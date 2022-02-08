@@ -231,6 +231,6 @@ class __TwigTemplate_aa9f463b65858fd5d78af6e37aebb683d177b720923fc4bbb9602b880ce
     <button class=\"btn btn-primary\" onclick=\"location.href ='{{ path('haie_new') }}'\">{{ button_label|default('Ajouter') }}</button>
 </div>
 {% endblock %}
-", "haie/index.html.twig", "C:\\Users\\lucas\\PhpstormProjects\\lePtitJardinier\\templates\\haie\\index.html.twig");
+", "haie/index.html.twig", "C:\\wamp64\\www\\leptitjardinier\\templates\\haie\\index.html.twig");
     }
 }

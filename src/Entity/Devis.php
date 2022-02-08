@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,14 +19,14 @@ class Devis
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    public $id;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="date", nullable=false)
      */
-    private $date;
+    public $date;
 
     /**
      * @var \Client
@@ -38,14 +36,35 @@ class Devis
      *   @ORM\JoinColumn(name="cif2_id", referencedColumnName="id")
      * })
      */
-    private $cif2;
+    public $client;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Haie", mappedBy="numDevis")
      */
-    private $numHaie;
+    public $numHaie;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="hauteur", type="integer", nullable=true)
+     */
+    public $Hauteur;
+
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="longeur", type="integer", nullable=true)
+     */
+    public $Longeur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=haie::class, inversedBy="devis")
+     */
+    public $typeHaie;
+    
 
     /**
      * Constructor
@@ -55,58 +74,14 @@ class Devis
         $this->numHaie = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getTypeHaie(): ?haie
     {
-        return $this->id;
+        return $this->typeHaie;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function setTypeHaie(?haie $typeHaie): self
     {
-        return $this->date;
-    }
-
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    public function getCif2(): ?Client
-    {
-        return $this->cif2;
-    }
-
-    public function setCif2(?Client $cif2): self
-    {
-        $this->cif2 = $cif2;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Haie[]
-     */
-    public function getNumHaie(): Collection
-    {
-        return $this->numHaie;
-    }
-
-    public function addNumHaie(Haie $numHaie): self
-    {
-        if (!$this->numHaie->contains($numHaie)) {
-            $this->numHaie[] = $numHaie;
-            $numHaie->addNumDevi($this);
-        }
-
-        return $this;
-    }
-
-    public function removeNumHaie(Haie $numHaie): self
-    {
-        if ($this->numHaie->removeElement($numHaie)) {
-            $numHaie->removeNumDevi($this);
-        }
+        $this->typeHaie = $typeHaie;
 
         return $this;
     }

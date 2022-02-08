@@ -76,7 +76,7 @@ class __TwigTemplate_2ef7985d69a8606c98f02b152bef509f4b429422f967694754c47c0b48a
     <a href=\"";
         // line 12
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("choix");
-        echo "\">Obtenir un devis en ligne pour une taille de haie</a>
+        echo "\">Obtenir un recap en ligne pour une taille de haie</a>
 </div>
 
 ";
@@ -116,10 +116,10 @@ class __TwigTemplate_2ef7985d69a8606c98f02b152bef509f4b429422f967694754c47c0b48a
 <div class=\"example-wrapper\">
     <h1>Le P'tit jardinier</h1>
     <h2>Des professionnels à votre service</h2>
-    <a href=\"{{ path('choix') }}\">Obtenir un devis en ligne pour une taille de haie</a>
+    <a href=\"{{ path('choix') }}\">Obtenir un recap en ligne pour une taille de haie</a>
 </div>
 
 {% endblock %}
-", "home/index.html.twig", "C:\\Users\\lucas\\PhpstormProjects\\lePtitJardinier\\templates\\home\\index.html.twig");
+", "home/index.html.twig", "C:\\wamp64\\www\\leptitjardinier\\templates\\home\\index.html.twig");
     }
 }

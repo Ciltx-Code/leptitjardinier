@@ -21,28 +21,28 @@ class Haie
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    public $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="code", type="string", length=255, nullable=false)
      */
-    private $code;
+    public $code;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255, nullable=false)
      */
-    private $nom;
+    public $nom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="prix", type="decimal", precision=5, scale=2, nullable=false)
      */
-    private $prix;
+    public $prix;
 
     /**
      * @var \Categorie
@@ -52,7 +52,7 @@ class Haie
      *   @ORM\JoinColumn(name="categorie_id", referencedColumnName="id")
      * })
      */
-    private $categorie;
+    public $categorie;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -67,7 +67,99 @@ class Haie
      *   }
      * )
      */
-    private $numDevis;
+    public $numDevis;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Devis::class, mappedBy="typeHaie")
+     */
+    private $devis;
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCode(): string
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     */
+    public function setCode(string $code): void
+    {
+        $this->code = $code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNom(): string
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param string $nom
+     */
+    public function setNom(string $nom): void
+    {
+        $this->nom = $nom;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrix(): string
+    {
+        return $this->prix;
+    }
+
+    /**
+     * @param string $prix
+     */
+    public function setPrix(string $prix): void
+    {
+        $this->prix = $prix;
+    }
+
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getNumDevis()
+    {
+        return $this->numDevis;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $numDevis
+     */
+    public function setNumDevis($numDevis): void
+    {
+        $this->numDevis = $numDevis;
+    }
+
+    public function __toString()
+    {
+        return $this->nom;
+    }
+
 
     /**
      * Constructor
@@ -75,81 +167,35 @@ class Haie
     public function __construct()
     {
         $this->numDevis = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function getCode(): ?string
-    {
-        return $this->code;
-    }
-
-    public function setCode(string $code): self
-    {
-        $this->code = $code;
-
-        return $this;
-    }
-
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
-
-    public function setNom(string $nom): self
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getPrix(): ?string
-    {
-        return $this->prix;
-    }
-
-    public function setPrix(string $prix): self
-    {
-        $this->prix = $prix;
-
-        return $this;
-    }
-
-    public function getCategorie(): ?Categorie
-    {
-        return $this->categorie;
-    }
-
-    public function setCategorie(?Categorie $categorie): self
-    {
-        $this->categorie = $categorie;
-
-        return $this;
+        $this->devis = new ArrayCollection();
     }
 
     /**
      * @return Collection|Devis[]
      */
-    public function getNumDevis(): Collection
+    public function getDevis(): Collection
     {
-        return $this->numDevis;
+        return $this->devis;
     }
 
-    public function addNumDevi(Devis $numDevi): self
+    public function addDevi(Devis $devi): self
     {
-        if (!$this->numDevis->contains($numDevi)) {
-            $this->numDevis[] = $numDevi;
+        if (!$this->devis->contains($devi)) {
+            $this->devis[] = $devi;
+            $devi->setTypeHaie($this);
         }
 
         return $this;
     }
 
-    public function removeNumDevi(Devis $numDevi): self
+    public function removeDevi(Devis $devi): self
     {
-        $this->numDevis->removeElement($numDevi);
+        if ($this->devis->removeElement($devi)) {
+            // set the owning side to null (unless already changed)
+            if ($devi->getTypeHaie() === $this) {
+                $devi->setTypeHaie(null);
+            }
+        }
 
         return $this;
     }

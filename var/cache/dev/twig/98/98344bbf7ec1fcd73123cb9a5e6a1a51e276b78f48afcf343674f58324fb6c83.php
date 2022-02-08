@@ -99,7 +99,7 @@ class __TwigTemplate_5a22e256f3fab25200788b183e772965f0179d312b66deecad0e3642ae5
         ";
         // line 17
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["devis"]) || array_key_exists("devis", $context) ? $context["devis"] : (function () { throw new RuntimeError('Variable "devis" does not exist.', 17, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["recap"]) || array_key_exists("recap", $context) ? $context["recap"] : (function () { throw new RuntimeError('Variable "recap" does not exist.', 17, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["devi"]) {
             // line 18
@@ -186,7 +186,7 @@ class __TwigTemplate_5a22e256f3fab25200788b183e772965f0179d312b66deecad0e3642ae5
             </tr>
         </thead>
         <tbody>
-        {% for devi in devis %}
+        {% for devi in recap %}
             <tr>
                 <td>{{ devi.id }}</td>
                 <td>{{ devi.date ? devi.date|date('Y-m-d') : '' }}</td>

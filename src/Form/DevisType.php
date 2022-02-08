@@ -13,6 +13,11 @@ class DevisType extends AbstractType
     {
         $builder
             ->add('date')
+            ->add('Hauteur')
+            ->add('Longeur')
+            ->add('client')
+            ->add('numHaie')
+            ->add('typeHaie')
         ;
     }
 

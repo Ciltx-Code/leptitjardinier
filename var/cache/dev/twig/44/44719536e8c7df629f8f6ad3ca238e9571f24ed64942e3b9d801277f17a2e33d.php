@@ -240,6 +240,6 @@ class __TwigTemplate_70add588a48dd75716c917a5dd944100c2fa5be1cf3d7b77d1d12d192fc
 
     <a href=\"{{ path('client_new') }}\">Create new</a>
 {% endblock %}
-", "client/index.html.twig", "C:\\Users\\lucas\\PhpstormProjects\\lePtitJardinier\\templates\\client\\index.html.twig");
+", "client/index.html.twig", "C:\\wamp64\\www\\leptitjardinier\\templates\\client\\index.html.twig");
     }
 }

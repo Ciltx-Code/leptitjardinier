@@ -17,9 +17,8 @@ return [
         '/choix' => [[['_route' => 'choix', '_controller' => 'App\\Controller\\ChoixController::index'], null, null, null, false, false, null]],
         '/client' => [[['_route' => 'client_index', '_controller' => 'App\\Controller\\ClientController::index'], null, ['GET' => 0], null, true, false, null]],
         '/client/new' => [[['_route' => 'client_new', '_controller' => 'App\\Controller\\ClientController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        '/d' => [[['_route' => 'd_index', '_controller' => 'App\\Controller\\DController::index'], null, ['GET' => 0], null, true, false, null]],
-        '/d/new' => [[['_route' => 'd_new', '_controller' => 'App\\Controller\\DController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        '/devis' => [[['_route' => 'devis', '_controller' => 'App\\Controller\\DevisController::index'], null, null, null, false, false, null]],
+        '/devis' => [[['_route' => 'devis_index', '_controller' => 'App\\Controller\\DevisController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/devis/new' => [[['_route' => 'devis_new', '_controller' => 'App\\Controller\\DevisController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/haie' => [[['_route' => 'haie_index', '_controller' => 'App\\Controller\\HaieController::index'], null, ['GET' => 0], null, true, false, null]],
         '/haie/new' => [[['_route' => 'haie_new', '_controller' => 'App\\Controller\\HaieController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/' => [
@@ -27,6 +26,7 @@ return [
             [['_route' => 'index', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null],
         ],
         '/mesure' => [[['_route' => 'mesure', '_controller' => 'App\\Controller\\MesureController::index'], null, null, null, false, false, null]],
+        '/recap' => [[['_route' => 'recap', '_controller' => 'App\\Controller\\RecapController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -50,15 +50,15 @@ return [
                     .'|/edit(*:200)'
                     .'|(*:208)'
                 .')'
-                .'|/d/([^/]++)(?'
-                    .'|(*:231)'
-                    .'|/edit(*:244)'
-                    .'|(*:252)'
+                .'|/devis/([^/]++)(?'
+                    .'|(*:235)'
+                    .'|/edit(*:248)'
+                    .'|(*:256)'
                 .')'
                 .'|/haie/([^/]++)(?'
-                    .'|(*:278)'
-                    .'|/edit(*:291)'
-                    .'|(*:299)'
+                    .'|(*:282)'
+                    .'|/edit(*:295)'
+                    .'|(*:303)'
                 .')'
             .')/?$}sDu',
     ],
@@ -73,12 +73,12 @@ return [
         187 => [[['_route' => 'client_show', '_controller' => 'App\\Controller\\ClientController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         200 => [[['_route' => 'client_edit', '_controller' => 'App\\Controller\\ClientController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         208 => [[['_route' => 'client_delete', '_controller' => 'App\\Controller\\ClientController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        231 => [[['_route' => 'd_show', '_controller' => 'App\\Controller\\DController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        244 => [[['_route' => 'd_edit', '_controller' => 'App\\Controller\\DController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        252 => [[['_route' => 'd_delete', '_controller' => 'App\\Controller\\DController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        278 => [[['_route' => 'haie_show', '_controller' => 'App\\Controller\\HaieController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        291 => [[['_route' => 'haie_edit', '_controller' => 'App\\Controller\\HaieController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        299 => [
+        235 => [[['_route' => 'devis_show', '_controller' => 'App\\Controller\\DevisController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        248 => [[['_route' => 'devis_edit', '_controller' => 'App\\Controller\\DevisController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        256 => [[['_route' => 'devis_delete', '_controller' => 'App\\Controller\\DevisController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        282 => [[['_route' => 'haie_show', '_controller' => 'App\\Controller\\HaieController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        295 => [[['_route' => 'haie_edit', '_controller' => 'App\\Controller\\HaieController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        303 => [
             [['_route' => 'haie_delete', '_controller' => 'App\\Controller\\HaieController::delete'], ['id'], ['POST' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

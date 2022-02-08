@@ -482,6 +482,6 @@ class __TwigTemplate_749ba7a6fa8a041c45042c7ef48132ddfe34fc1cf5579b0d86a26e2eb3a
         {% endfor %}
     </table>
 {% endmacro %}
-", "@WebProfiler/Collector/events.html.twig", "C:\\Users\\lucas\\PhpstormProjects\\lePtitJardinier\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\events.html.twig");
+", "@WebProfiler/Collector/events.html.twig", "C:\\wamp64\\www\\leptitjardinier\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\events.html.twig");
     }
 }

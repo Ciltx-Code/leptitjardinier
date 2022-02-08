@@ -19,126 +19,52 @@ class Client
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    public $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255, nullable=false)
      */
-    private $nom;
+    public $nom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=255, nullable=false)
      */
-    private $prenom;
+    public $prenom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="adresse", type="string", length=255, nullable=false)
      */
-    private $adresse;
+    public $adresse;
 
     /**
      * @var string
      *
      * @ORM\Column(name="ville", type="string", length=255, nullable=false)
      */
-    private $ville;
+    public $ville;
 
     /**
      * @var int
      *
      * @ORM\Column(name="cp", type="integer", nullable=false)
      */
-    private $cp;
+    public $cp;
 
     /**
      * @var string
      *
      * @ORM\Column(name="type_client", type="string", length=255, nullable=false)
      */
-    private $typeClient;
+    public $typeClient;
 
-    public function getId(): ?int
+    public function __toString()
     {
-        return $this->id;
+        return $this->nom." - ".$this->prenom;
     }
-
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
-
-    public function setNom(string $nom): self
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getPrenom(): ?string
-    {
-        return $this->prenom;
-    }
-
-    public function setPrenom(string $prenom): self
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    public function getAdresse(): ?string
-    {
-        return $this->adresse;
-    }
-
-    public function setAdresse(string $adresse): self
-    {
-        $this->adresse = $adresse;
-
-        return $this;
-    }
-
-    public function getVille(): ?string
-    {
-        return $this->ville;
-    }
-
-    public function setVille(string $ville): self
-    {
-        $this->ville = $ville;
-
-        return $this;
-    }
-
-    public function getCp(): ?int
-    {
-        return $this->cp;
-    }
-
-    public function setCp(int $cp): self
-    {
-        $this->cp = $cp;
-
-        return $this;
-    }
-
-    public function getTypeClient(): ?string
-    {
-        return $this->typeClient;
-    }
-
-    public function setTypeClient(string $typeClient): self
-    {
-        $this->typeClient = $typeClient;
-
-        return $this;
-    }
-
-
 }

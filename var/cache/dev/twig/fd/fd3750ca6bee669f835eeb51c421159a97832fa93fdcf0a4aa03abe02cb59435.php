@@ -25,6 +25,7 @@ class __TwigTemplate_e4965535d083bab4f1273853a111aa4b6b43ddb91593cf6bb51bed2f6c8
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
+            'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -54,7 +55,26 @@ class __TwigTemplate_e4965535d083bab4f1273853a111aa4b6b43ddb91593cf6bb51bed2f6c8
 
     }
 
-    // line 4
+    // line 3
+    public function block_title($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        echo "Devis index";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 5
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -64,41 +84,76 @@ class __TwigTemplate_e4965535d083bab4f1273853a111aa4b6b43ddb91593cf6bb51bed2f6c8
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 5
-        echo "<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+        // line 6
+        echo "    <h1>Devis index</h1>
 
-<div class=\"example-wrapper\">
-    <h4>Vous êtes un(e) ";
-        // line 11
-        echo twig_escape_filter($this->env, (isset($context["choix"]) || array_key_exists("choix", $context) ? $context["choix"] : (function () { throw new RuntimeError('Variable "choix" does not exist.', 11, $this->source); })()), "html", null, true);
-        echo " (vous bénéficiez d'une remise de ";
-        echo twig_escape_filter($this->env, (isset($context["remise"]) || array_key_exists("remise", $context) ? $context["remise"] : (function () { throw new RuntimeError('Variable "remise" does not exist.', 11, $this->source); })()), "html", null, true);
-        echo "%)</h4>
-    <h4>Rappel - mesures de la haie (";
-        // line 12
-        echo twig_escape_filter($this->env, (isset($context["type"]) || array_key_exists("type", $context) ? $context["type"] : (function () { throw new RuntimeError('Variable "type" does not exist.', 12, $this->source); })()), "html", null, true);
-        echo ") : Longeur de ";
-        echo twig_escape_filter($this->env, (isset($context["longeur"]) || array_key_exists("longeur", $context) ? $context["longeur"] : (function () { throw new RuntimeError('Variable "longeur" does not exist.', 12, $this->source); })()), "html", null, true);
-        echo "m, Hauteur de ";
-        echo twig_escape_filter($this->env, (isset($context["hauteur"]) || array_key_exists("hauteur", $context) ? $context["hauteur"] : (function () { throw new RuntimeError('Variable "hauteur" does not exist.', 12, $this->source); })()), "html", null, true);
-        echo "m</h4>
-    <h4>Vous avez obtenu une remise de ";
-        // line 13
-        echo twig_escape_filter($this->env, (isset($context["montantremise"]) || array_key_exists("montantremise", $context) ? $context["montantremise"] : (function () { throw new RuntimeError('Variable "montantremise" does not exist.', 13, $this->source); })()), "html", null, true);
-        echo " €</h4>
-    <h4>Le montant de votre devis est de ";
-        // line 14
-        echo twig_escape_filter($this->env, (isset($context["montant"]) || array_key_exists("montant", $context) ? $context["montant"] : (function () { throw new RuntimeError('Variable "montant" does not exist.', 14, $this->source); })()), "html", null, true);
-        echo " €</h4>
+    <table class=\"table\">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Hauteur</th>
+                <th>Longeur</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        ";
+        // line 19
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["devis"]) || array_key_exists("devis", $context) ? $context["devis"] : (function () { throw new RuntimeError('Variable "devis" does not exist.', 19, $this->source); })()));
+        $context['_iterated'] = false;
+        foreach ($context['_seq'] as $context["_key"] => $context["devi"]) {
+            // line 20
+            echo "            <tr>
+                <td>";
+            // line 21
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["devi"], "id", [], "any", false, false, false, 21), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 22
+            ((twig_get_attribute($this->env, $this->source, $context["devi"], "date", [], "any", false, false, false, 22)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["devi"], "date", [], "any", false, false, false, 22), "Y-m-d"), "html", null, true))) : (print ("")));
+            echo "</td>
+                <td>";
+            // line 23
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["devi"], "Hauteur", [], "any", false, false, false, 23), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 24
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["devi"], "Longeur", [], "any", false, false, false, 24), "html", null, true);
+            echo "</td>
+                <td>
+                    <a href=\"";
+            // line 26
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("devis_show", ["id" => twig_get_attribute($this->env, $this->source, $context["devi"], "id", [], "any", false, false, false, 26)]), "html", null, true);
+            echo "\">show</a>
+                    <a href=\"";
+            // line 27
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("devis_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["devi"], "id", [], "any", false, false, false, 27)]), "html", null, true);
+            echo "\">edit</a>
+                </td>
+            </tr>
+        ";
+            $context['_iterated'] = true;
+        }
+        if (!$context['_iterated']) {
+            // line 31
+            echo "            <tr>
+                <td colspan=\"5\">no records found</td>
+            </tr>
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['devi'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 35
+        echo "        </tbody>
+    </table>
+
     <a href=\"";
-        // line 15
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
-        echo "\">Revenir à l'accueil</a>
-</div>
-
+        // line 38
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("devis_new");
+        echo "\">Create new</a>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -120,29 +175,50 @@ class __TwigTemplate_e4965535d083bab4f1273853a111aa4b6b43ddb91593cf6bb51bed2f6c8
 
     public function getDebugInfo()
     {
-        return array (  98 => 15,  94 => 14,  90 => 13,  82 => 12,  76 => 11,  68 => 5,  58 => 4,  35 => 1,);
+        return array (  155 => 38,  150 => 35,  141 => 31,  132 => 27,  128 => 26,  123 => 24,  119 => 23,  115 => 22,  111 => 21,  108 => 20,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
+{% block title %}Devis index{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>Devis index</h1>
 
-<div class=\"example-wrapper\">
-    <h4>Vous êtes un(e) {{ choix }} (vous bénéficiez d'une remise de {{ remise }}%)</h4>
-    <h4>Rappel - mesures de la haie ({{ type}}) : Longeur de {{ longeur }}m, Hauteur de {{ hauteur }}m</h4>
-    <h4>Vous avez obtenu une remise de {{ montantremise}} €</h4>
-    <h4>Le montant de votre devis est de {{ montant}} €</h4>
-    <a href=\"{{ path('home') }}\">Revenir à l'accueil</a>
-</div>
+    <table class=\"table\">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Hauteur</th>
+                <th>Longeur</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for devi in devis %}
+            <tr>
+                <td>{{ devi.id }}</td>
+                <td>{{ devi.date ? devi.date|date('Y-m-d') : '' }}</td>
+                <td>{{ devi.Hauteur }}</td>
+                <td>{{ devi.Longeur }}</td>
+                <td>
+                    <a href=\"{{ path('devis_show', {'id': devi.id}) }}\">show</a>
+                    <a href=\"{{ path('devis_edit', {'id': devi.id}) }}\">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan=\"5\">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
+    <a href=\"{{ path('devis_new') }}\">Create new</a>
 {% endblock %}
-", "devis/index.html.twig", "C:\\Users\\lucas\\PhpstormProjects\\lePtitJardinier\\templates\\devis\\index.html.twig");
+", "devis/index.html.twig", "C:\\wamp64\\www\\leptitjardinier\\templates\\devis\\index.html.twig");
     }
 }

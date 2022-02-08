@@ -104,6 +104,21 @@ class __TwigTemplate_94df0fd198ca7ba761bc2523139906b49535ffa55dfec0e090b043c7ca2
             <label for=\"Entreprise\">Entreprise</label>
         </div>
         <br/>
+        <div class=\"input-group mb-3\">
+            <input type=\"text\" class=\"form-control\" name=\"nom\" placeholder=\"Entrez votre nom\" aria-label=\"nom\" aria-describedby=\"basic-addon1\">
+        </div>
+        <div class=\"input-group mb-3\">
+            <input type=\"text\" class=\"form-control\" name=\"prenom\" placeholder=\"Entrez votre prenom\" aria-label=\"prenom\" aria-describedby=\"basic-addon1\">
+        </div>
+        <div class=\"input-group mb-3\">
+            <input type=\"text\" class=\"form-control\" name=\"adresse\" placeholder=\"Entrez votre adresse\" aria-label=\"adresse\" aria-describedby=\"basic-addon1\">
+        </div>
+        <div class=\"input-group mb-3\">
+            <input type=\"text\" class=\"form-control\" name=\"ville\" placeholder=\"Entrez votre ville\" aria-label=\"ville\" aria-describedby=\"basic-addon1\">
+        </div>
+        <div class=\"input-group mb-3\">
+            <input type=\"number\" min=\"10000\" max=\"99999\" class=\"form-control\" name=\"cp\" placeholder=\"Entrez votre code postal\" aria-label=\"cp\" aria-describedby=\"basic-addon1\">
+        </div>
         <input class=\"btn btn-primary\" type=\"submit\" value=\"Suite\">
     </form>
 
@@ -154,12 +169,27 @@ class __TwigTemplate_94df0fd198ca7ba761bc2523139906b49535ffa55dfec0e090b043c7ca2
             <label for=\"Entreprise\">Entreprise</label>
         </div>
         <br/>
+        <div class=\"input-group mb-3\">
+            <input type=\"text\" class=\"form-control\" name=\"nom\" placeholder=\"Entrez votre nom\" aria-label=\"nom\" aria-describedby=\"basic-addon1\">
+        </div>
+        <div class=\"input-group mb-3\">
+            <input type=\"text\" class=\"form-control\" name=\"prenom\" placeholder=\"Entrez votre prenom\" aria-label=\"prenom\" aria-describedby=\"basic-addon1\">
+        </div>
+        <div class=\"input-group mb-3\">
+            <input type=\"text\" class=\"form-control\" name=\"adresse\" placeholder=\"Entrez votre adresse\" aria-label=\"adresse\" aria-describedby=\"basic-addon1\">
+        </div>
+        <div class=\"input-group mb-3\">
+            <input type=\"text\" class=\"form-control\" name=\"ville\" placeholder=\"Entrez votre ville\" aria-label=\"ville\" aria-describedby=\"basic-addon1\">
+        </div>
+        <div class=\"input-group mb-3\">
+            <input type=\"number\" min=\"10000\" max=\"99999\" class=\"form-control\" name=\"cp\" placeholder=\"Entrez votre code postal\" aria-label=\"cp\" aria-describedby=\"basic-addon1\">
+        </div>
         <input class=\"btn btn-primary\" type=\"submit\" value=\"Suite\">
     </form>
 
 
 </div>
 {% endblock %}
-", "choix/index.html.twig", "C:\\Users\\lucas\\PhpstormProjects\\lePtitJardinier\\templates\\choix\\index.html.twig");
+", "choix/index.html.twig", "C:\\wamp64\\www\\leptitjardinier\\templates\\choix\\index.html.twig");
     }
 }

@@ -34,6 +34,7 @@ class Categorie extends \App\Entity\Categorie implements \Doctrine\ORM\Proxy\Pro
      * @var array<string, null> properties to be lazy loaded, indexed by property name
      */
     public static $lazyPropertiesNames = array (
+  'libelle' => NULL,
 );
 
     /**
@@ -42,22 +43,67 @@ class Categorie extends \App\Entity\Categorie implements \Doctrine\ORM\Proxy\Pro
      * @see \Doctrine\Common\Proxy\Proxy::__getLazyProperties
      */
     public static $lazyPropertiesDefaults = array (
+  'libelle' => NULL,
 );
 
 
 
     public function __construct(?\Closure $initializer = null, ?\Closure $cloner = null)
     {
+        unset($this->libelle);
 
         $this->__initializer__ = $initializer;
         $this->__cloner__      = $cloner;
     }
 
+    /**
+     * 
+     * @param string $name
+     */
+    public function __get($name)
+    {
+        if (\array_key_exists($name, self::$lazyPropertiesNames)) {
+            $this->__initializer__ && $this->__initializer__->__invoke($this, '__get', [$name]);
+            return $this->$name;
+        }
 
+        trigger_error(sprintf('Undefined property: %s::$%s', __CLASS__, $name), E_USER_NOTICE);
 
+    }
 
+    /**
+     * 
+     * @param string $name
+     * @param mixed  $value
+     */
+    public function __set($name, $value)
+    {
+        if (\array_key_exists($name, self::$lazyPropertiesNames)) {
+            $this->__initializer__ && $this->__initializer__->__invoke($this, '__set', [$name, $value]);
 
+            $this->$name = $value;
 
+            return;
+        }
+
+        $this->$name = $value;
+    }
+
+    /**
+     * 
+     * @param  string $name
+     * @return boolean
+     */
+    public function __isset($name)
+    {
+        if (\array_key_exists($name, self::$lazyPropertiesNames)) {
+            $this->__initializer__ && $this->__initializer__->__invoke($this, '__isset', [$name]);
+
+            return isset($this->$name);
+        }
+
+        return false;
+    }
 
     /**
      * 
@@ -66,10 +112,10 @@ class Categorie extends \App\Entity\Categorie implements \Doctrine\ORM\Proxy\Pro
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Categorie' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Categorie' . "\0" . 'libelle'];
+            return ['__isInitialized__', 'id', 'libelle'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Categorie' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Categorie' . "\0" . 'libelle'];
+        return ['__isInitialized__', 'id'];
     }
 
     /**
@@ -91,6 +137,7 @@ class Categorie extends \App\Entity\Categorie implements \Doctrine\ORM\Proxy\Pro
                 }
             };
 
+            unset($this->libelle);
         }
     }
 
@@ -176,41 +223,4 @@ class Categorie extends \App\Entity\Categorie implements \Doctrine\ORM\Proxy\Pro
     }
 
     
-    /**
-     * {@inheritDoc}
-     */
-    public function getId(): ?int
-    {
-        if ($this->__isInitialized__ === false) {
-            return (int)  parent::getId();
-        }
-
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
-
-        return parent::getId();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getLibelle(): ?string
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLibelle', []);
-
-        return parent::getLibelle();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setLibelle(string $libelle): \App\Entity\Categorie
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLibelle', [$libelle]);
-
-        return parent::setLibelle($libelle);
-    }
-
 }

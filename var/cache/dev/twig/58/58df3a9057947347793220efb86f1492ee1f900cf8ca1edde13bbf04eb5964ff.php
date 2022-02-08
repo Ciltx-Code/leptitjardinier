@@ -105,14 +105,44 @@ class __TwigTemplate_a4a2f8ab1d05b6d87d7e6b9cf2e578cb5e4459a74edc9e3d6e0771c5901
         echo "\">Consultation / Mofidication</a>
                             </div>
                         </li>
+                       <li class=\"nav-item dropdown\">
+                           <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                               Gestion des Clients
+                           </a>
+                           <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">
+                               <a class=\"dropdown-item\" href=\"";
+        // line 50
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("client_new");
+        echo "\">Création</a>
+                               <a class=\"dropdown-item\" href=\"";
+        // line 51
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("client_index");
+        echo "\">Consultation / Mofidication</a>
+                           </div>
+                       </li>
+                       <li class=\"nav-item dropdown\">
+                           <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                               Gestion des Devis
+                           </a>
+                           <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">
+                               <a class=\"dropdown-item\" href=\"";
+        // line 59
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("devis_new");
+        echo "\">Création</a>
+                               <a class=\"dropdown-item\" href=\"";
+        // line 60
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("devis_index");
+        echo "\">Consultation / Mofidication</a>
+                           </div>
+                       </li>
                     </ul>
             </div>
         </nav>
 
     ";
-        // line 49
+        // line 67
         $this->displayBlock('body', $context, $blocks);
-        // line 51
+        // line 69
         echo "    </body>
 </html>
 ";
@@ -187,7 +217,7 @@ class __TwigTemplate_a4a2f8ab1d05b6d87d7e6b9cf2e578cb5e4459a74edc9e3d6e0771c5901
 
     }
 
-    // line 49
+    // line 67
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -197,7 +227,7 @@ class __TwigTemplate_a4a2f8ab1d05b6d87d7e6b9cf2e578cb5e4459a74edc9e3d6e0771c5901
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 50
+        // line 68
         echo "    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -219,7 +249,7 @@ class __TwigTemplate_a4a2f8ab1d05b6d87d7e6b9cf2e578cb5e4459a74edc9e3d6e0771c5901
 
     public function getDebugInfo()
     {
-        return array (  201 => 50,  191 => 49,  178 => 17,  168 => 16,  157 => 9,  147 => 8,  128 => 5,  116 => 51,  114 => 49,  104 => 42,  100 => 41,  89 => 33,  83 => 30,  72 => 21,  70 => 16,  64 => 13,  60 => 11,  57 => 8,  53 => 5,  47 => 1,);
+        return array (  231 => 68,  221 => 67,  208 => 17,  198 => 16,  187 => 9,  177 => 8,  158 => 5,  146 => 69,  144 => 67,  134 => 60,  130 => 59,  119 => 51,  115 => 50,  104 => 42,  100 => 41,  89 => 33,  83 => 30,  72 => 21,  70 => 16,  64 => 13,  60 => 11,  57 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -268,6 +298,24 @@ class __TwigTemplate_a4a2f8ab1d05b6d87d7e6b9cf2e578cb5e4459a74edc9e3d6e0771c5901
                                 <a class=\"dropdown-item\" href=\"{{ path('haie_index') }}\">Consultation / Mofidication</a>
                             </div>
                         </li>
+                       <li class=\"nav-item dropdown\">
+                           <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                               Gestion des Clients
+                           </a>
+                           <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">
+                               <a class=\"dropdown-item\" href=\"{{ path('client_new') }}\">Création</a>
+                               <a class=\"dropdown-item\" href=\"{{ path('client_index') }}\">Consultation / Mofidication</a>
+                           </div>
+                       </li>
+                       <li class=\"nav-item dropdown\">
+                           <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                               Gestion des Devis
+                           </a>
+                           <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">
+                               <a class=\"dropdown-item\" href=\"{{ path('devis_new') }}\">Création</a>
+                               <a class=\"dropdown-item\" href=\"{{ path('devis_index') }}\">Consultation / Mofidication</a>
+                           </div>
+                       </li>
                     </ul>
             </div>
         </nav>
@@ -276,6 +324,6 @@ class __TwigTemplate_a4a2f8ab1d05b6d87d7e6b9cf2e578cb5e4459a74edc9e3d6e0771c5901
     {% endblock %}
     </body>
 </html>
-", "base.html.twig", "C:\\Users\\lucas\\PhpstormProjects\\lePtitJardinier\\templates\\base.html.twig");
+", "base.html.twig", "C:\\wamp64\\www\\leptitjardinier\\templates\\base.html.twig");
     }
 }
