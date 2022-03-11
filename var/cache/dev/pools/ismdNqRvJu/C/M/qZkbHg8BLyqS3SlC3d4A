@@ -7,9 +7,6 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     null,
     [
         'stdClass' => [
-            'name' => [
-                'hauteur',
-            ],
             'type' => [
                 'integer',
             ],
@@ -18,6 +15,9 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             ],
             'scale' => [
                 null,
+            ],
+            'nullable' => [
+                true,
             ],
         ],
     ],

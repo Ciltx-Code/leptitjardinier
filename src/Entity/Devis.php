@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -39,49 +41,41 @@ class Devis
     public $client;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Haie", mappedBy="numDevis")
+     * @ORM\OneToMany(targetEntity=Tailler::class, mappedBy="devis")
      */
-    public $numHaie;
+    private $taillers;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="hauteur", type="integer", nullable=true)
-     */
-    public $Hauteur;
-
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="longeur", type="integer", nullable=true)
-     */
-    public $Longeur;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=haie::class, inversedBy="devis")
-     */
-    public $typeHaie;
-    
-
-    /**
-     * Constructor
-     */
     public function __construct()
     {
-        $this->numHaie = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->taillers = new ArrayCollection();
     }
 
-    public function getTypeHaie(): ?haie
+    /**
+     * @return Collection|Tailler[]
+     */
+    public function getTaillers(): Collection
     {
-        return $this->typeHaie;
+        return $this->taillers;
     }
 
-    public function setTypeHaie(?haie $typeHaie): self
+    public function addTailler(Tailler $tailler): self
     {
-        $this->typeHaie = $typeHaie;
+        if (!$this->taillers->contains($tailler)) {
+            $this->taillers[] = $tailler;
+            $tailler->setDevis($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTailler(Tailler $tailler): self
+    {
+        if ($this->taillers->removeElement($tailler)) {
+            // set the owning side to null (unless already changed)
+            if ($tailler->getDevis() === $this) {
+                $tailler->setDevis(null);
+            }
+        }
 
         return $this;
     }

@@ -55,24 +55,15 @@ class Haie
     public $categorie;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Devis", inversedBy="numHaie")
-     * @ORM\JoinTable(name="tailler",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="num_haie", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="num_devis", referencedColumnName="id")
-     *   }
-     * )
+     * @ORM\OneToMany(targetEntity=Tailler::class, mappedBy="haie")
      */
-    public $numDevis;
+    private $taillers;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Devis::class, mappedBy="typeHaie")
-     */
-    private $devis;
+    public function __construct()
+    {
+        $this->taillers = new ArrayCollection();
+    }
+
 
     /**
      * @return int
@@ -139,61 +130,35 @@ class Haie
     }
 
 
-    /**
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getNumDevis()
-    {
-        return $this->numDevis;
-    }
-
-    /**
-     * @param \Doctrine\Common\Collections\Collection $numDevis
-     */
-    public function setNumDevis($numDevis): void
-    {
-        $this->numDevis = $numDevis;
-    }
-
     public function __toString()
     {
         return $this->nom;
     }
 
-
     /**
-     * Constructor
+     * @return Collection|Tailler[]
      */
-    public function __construct()
+    public function getTaillers(): Collection
     {
-        $this->numDevis = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->devis = new ArrayCollection();
+        return $this->taillers;
     }
 
-    /**
-     * @return Collection|Devis[]
-     */
-    public function getDevis(): Collection
+    public function addTailler(Tailler $tailler): self
     {
-        return $this->devis;
-    }
-
-    public function addDevi(Devis $devi): self
-    {
-        if (!$this->devis->contains($devi)) {
-            $this->devis[] = $devi;
-            $devi->setTypeHaie($this);
+        if (!$this->taillers->contains($tailler)) {
+            $this->taillers[] = $tailler;
+            $tailler->setHaie($this);
         }
 
         return $this;
     }
 
-    public function removeDevi(Devis $devi): self
+    public function removeTailler(Tailler $tailler): self
     {
-        if ($this->devis->removeElement($devi)) {
+        if ($this->taillers->removeElement($tailler)) {
             // set the owning side to null (unless already changed)
-            if ($devi->getTypeHaie() === $this) {
-                $devi->setTypeHaie(null);
+            if ($tailler->getHaie() === $this) {
+                $tailler->setHaie(null);
             }
         }
 
